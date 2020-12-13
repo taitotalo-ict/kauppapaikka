@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+    <title>KAUPPA | <%= otsikko %></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css">
+    <link rel="stylesheet" href="/css/tyyli.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.14.0/js/all.js"></script>
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+</head>
+<body class="container is-max-desktop">
+
+    <header class="container mb-6">
+    <!-- Navigation bar -->
+    <nav class="navbar has-shadow" role="navigation" aria-label="main navigation">
+
+        <!-- Navigation part for the brand -->
+        <div class="navbar-brand">
+
+            <!-- Navigation items should be of class navbar-item -->
+            <a class="navbar-item" href="/">
+                <img src="/kuvat/DjangoKauppa_Logo_400.png">
+            </a>
+
+            <!-- Burger menu -->
+            <a role="button" id="burger-menu" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+                data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <!-- navbar-menu element contains the actual navigation items (But inside it two children) -->
+        <div id="navbar-menu" class="navbar-menu">
+            <!-- First children of navbar-menu. Inside it actual navigation items -->
+            <div class="navbar-start">
+
+                <!-- Navigation items are marked with the class navbar-item -->
+                <a class="navbar-item" href="/tuotteet">Tuotteet</a>
+
+                <a class="navbar-item" href="/yhteystiedot">Yhteystiedot</a>
+
+                <!-- Navigation item with dropdown -->
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <!-- Submenu title -->
+                    <a class="navbar-link">Kategoriat</a>
+
+                    <!-- Submenu items -->
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item">Elektroniikka</a>
+                        <a class="navbar-item">Vapaa aikaa</a>
+                        <a class="navbar-item">Kodinkoneet</a>
+                        <hr class="navbar-divider">
+                        <a class="navbar-item">Tarjoukset</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second children of navbar-menu. Inside it, actual navigation items -->
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <% if (user) { %>
+                        <p class="content m-0 mr-4">
+                            <span class="has-text-weight-bold is-unselectable">Moi <%= user.etunimi %>!</span>
+                        </p>
+                        <% if (user.isAdmin) { %>
+                            <a href="/tuote/uusi" class="button is-info">Lisää tuote</a>
+                        <% } %>
+                        <a href="/ostoskarry" class="cart mr-5">
+                            <div class="cart-count">
+                                <span class="cart-number">0</span>
+                            </div>
+                            <span class="icon has-text-primary is-large">
+                                <i class="fa fa-2x fa-shopping-cart has-text-primary"></i>
+                            </span>
+                        </a>
+                        <a class="button is-danger m-0" href="/uloskirjautuminen">Kirjaudu ulos</a>
+                    <% } else { %>
+                        <a class="button is-primary" href="/rekisterointi"><strong>Rekisteröi</strong></a>
+                        <a class="button is-info" href="/kirjaudu">Kirjaudu</a>
+                    <% } %>
+                    </div>
+                </div>
+            </div> <!-- /NavBar-End -->
+
+        </div> <!-- /NavBar-Menu -->
+    </nav> <!-- /NavBar -->
+    </header>

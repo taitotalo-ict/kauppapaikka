@@ -1,0 +1,113 @@
+<%- include('includes/header'); %>
+
+<form action="" method="post" enctype="multipart/form-data">
+
+  <div class="field">
+    <label class="label">Tuotten nimi</label>
+    <div class="control">
+      <input class="input" name="nimi" type="text" placeholder="Tuotteen nimi">
+    </div>
+  </div>
+
+  <!-- <div class="field">
+    <label class="label">Tuotteen nimi</label>
+    <div class="control has-icons-left has-icons-right">
+      <input class="input is-success" type="text" placeholder="Text input" value="bulma">
+      <span class="icon is-small is-left">
+        <i class="fas fa-user"></i>
+      </span>
+      <span class="icon is-small is-right">
+        <i class="fas fa-check"></i>
+      </span>
+    </div>
+    <p class="help is-success">This username is available</p>
+  </div>
+   -->
+
+   <!-- <div class="field">
+    <label class="label">Email</label>
+    <div class="control has-icons-left has-icons-right">
+      <input class="input is-danger" type="email" placeholder="Email input" value="hello@">
+      <span class="icon is-small is-left">
+        <i class="fas fa-envelope"></i>
+      </span>
+      <span class="icon is-small is-right">
+        <i class="fas fa-exclamation-triangle"></i>
+      </span>
+    </div>
+    <p class="help is-danger">This email is invalid</p>
+  </div> -->
+  
+  <!-- <div class="field">
+    <label class="label">Subject</label>
+    <div class="control">
+      <div class="select">
+        <select>
+          <option>Select dropdown</option>
+          <option>With options</option>
+        </select>
+      </div>
+    </div>
+  </div>
+   -->
+
+   <div class="field">
+    <label class="label">Lisätiedot tuotteesta</label>
+    <div class="control">
+      <textarea name="lisätiedot" class="textarea" placeholder="Lisätiedot"></textarea>
+    </div>
+  </div>
+  
+  <!-- <div class="field">
+    <div class="control">
+      <label class="checkbox">
+        <input type="checkbox">
+        I agree to the <a href="#">terms and conditions</a>
+      </label>
+    </div>
+  </div> -->
+  
+  <!-- <div class="field">
+    <div class="control">
+      <label class="radio">
+        <input type="radio" name="question">
+        Yes
+      </label>
+      <label class="radio">
+        <input type="radio" name="question">
+        No
+      </label>
+    </div>
+  </div> -->
+  
+  <div class="field">
+    <label class="label">Hinta</label>
+    <div class="control">
+      <input class="input" name="hinta" type="number" placeholder="Hinta" step=".01">
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Määrä</label>
+    <div class="control">
+      <input class="input" name="määrä" type="number" placeholder="Määrä" onkeydown="if(',.'.includes(event.key)){event.preventDefault();}">
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Kuva</label>
+    <div class="control">
+      <input class="input" name="kuva" type="file" placeholder="Kuva">
+    </div>
+  </div>
+
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-primary" type="submit">Lähetä</button>
+    </div>
+    <div class="control">
+      <button class="button is-primary is-light" type="reset">Nollata</button>
+    </div>
+  </div>
+</form>
+<%- include('includes/footer'); %>

@@ -1,0 +1,47 @@
+<%- include('includes/header'); %>
+
+<% if (tuote) { %> 
+<div class="section p-0 mb-6">
+    <div class="card is-horizontal">
+
+        <div class="card-image">
+            <figure class="image is-4by3">
+                <img src="<%= tuote.kuva %>" alt="this used to be photo">
+            </figure>
+        </div>
+
+        <div class="card-content">
+            <p class="title is-3"><%= tuote.nimi %></p>
+            <div class="content">
+                <%= tuote.lisätiedot %>
+                <br><br>
+                <p class="is-size-5">
+                    Tuote luottu: <%= tuote.createdAt %>
+                </p>
+                <p class="is-size-5">
+                    Tuote päivitetty: <%= tuote.updatedAt %>
+                </p>
+                <p class="is-size-5">
+                    Varastossa: <% if (tuote.määrä >10) { %>
+                        &gt;10
+                    <% } else { %>
+                        &lt;10
+                    <% } %>
+                </p>
+                <br><br>
+                <% if (tuote.hinta >= 100) { %>
+                    <span class="tag is-link">Ilmainen lähetys</span>
+                <% } %>
+            </div>
+            <p class="is-size-3 mb-3 has-text-centered">Hinta: <%= hintaSuomeksi(tuote.hinta) %>€</p>
+            <a href="#">
+                <button class="button is-primary is-size-4 is-fullwidth has-text-weight-bold">Lisää ostoskoriin</button>
+            </a>
+        </div>
+    </div>
+</div>
+<% } else { %> 
+    <p>TuoteID ei löytynyt!</p>
+<% } %>
+
+<%- include('includes/footer'); %>

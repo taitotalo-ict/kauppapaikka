@@ -1,0 +1,42 @@
+<%- include('includes/header'); %>
+
+<h1 class="title has-text-centered is-size-1">Kaikki tuotteet</h1>
+
+<%# Tarkista onko 'tuotteet' tyhjä %>
+<% if (!tuotteet.length) { %>
+    <p>Ei ole tuoteita!</p>
+<% } else { %>
+    <% tuotteet.forEach( tuote => { %>
+        <!-- Tuote -->
+        <div class="tuote box p-0 is-clipped mb-4">
+            <div class="columns m-0">
+                <div class="column is-2 p-0 is-flex is-align-items-center">
+                    <figure class="image">
+                        <img src="<%= tuote.kuva %>" alt="Tuoten kuva">
+                    </figure>
+                </div>
+                <div class="column is-6 pl-5">
+                    <h2 class="title"><%= tuote.nimi %></h2>
+                    <p class="mb-2"><%= truncate(tuote.lisätiedot, 150) %></p>
+                    <a href="tuote/<%= tuote.id %>" class="button is-info">Lisää tietoa tuotteesta</a>
+                </div>
+                <div class="column is-4 is-flex is-flex-direction-column is-justify-content-space-between">
+                    <div class="is-flex is-align-items-center is-justify-content-center is-flex-grow-1 is-flex-direction-column">
+                        <div class="hinta">
+                            <h2 class="title is-inline-block mb-3"><%= hintaSuomeksi(tuote.hinta) %>€</h2>
+                            <p class="is-inline-block ml-2 is-size-5">/kpl</p>
+                        </div>
+                        <% if (tuote.hinta >= 100) { %>
+                        <div class="hinta-tags mb-4">
+                            <span class="tag is-success">Ilmainen lähetys</span>
+                        </div>
+                        <% } %>
+                    </div>
+                    <a href="#" class="button is-primary is-block">Lisää ostoskärryyn!</a>
+                </div>
+            </div>
+        </div>
+    <% }); %>
+<% } %>
+
+<%- include('includes/footer'); %>

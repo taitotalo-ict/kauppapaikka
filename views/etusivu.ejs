@@ -1,0 +1,100 @@
+<%- include('includes/header'); %>
+
+    <%# Tämä on kommentti :) Tämä ei näytetään loppusivulla %>
+
+    <%# Tarkistetaan onko tuotetta näytettäväksi %>
+    <% if (tuote) { %>
+    <!-- Hero card -->
+    <div class="section p-0 mb-6">
+        <div class="card is-horizontal">
+
+            <div class="card-image">
+                <figure class="image is-4by3">
+                    <img src="<%= tuote.kuva %>" alt="Kuva: <%= tuote.nimi %>">
+                </figure>
+            </div>
+
+            <div class="card-content">
+                <p class="title is-3"><%= tuote.nimi %></p>
+                <div class="content"><%= tuote.lisätiedot %>
+                    <br><br>
+                    <% if (tuote.hinta >= 100) { %>
+                        <span class="tag is-link">Ilmainen lähetys</span>
+                    <% } %>
+                    <span class="tag is-warning">Vain 1 päivä tällä hinnalla!</span>
+                </div>
+                <p class="is-size-3 mb-3 has-text-centered">Hinta: <%= hintaSuomeksi(tuote.hinta) %>€</p>
+                <div class="level"><a class="level-item is-size-4 button is-primary has-text-weight-bold" href="#">
+                    Lisää ostoskoriin
+                </a></div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Call to Action -->
+    <div class="cta level mb-6">
+        <a class="button level-item has-text-centered is-primary is-rounded" href="tuotteet">
+            Katso kaikki tuottet täältä!
+        </a>
+    </div>
+    <% } %>
+
+
+    <!-- Info cards -->
+    <div class="container">
+        <div class="columns is-multiline">
+            <!-- Card container -->
+            <div class="column is-6-tablet is-4-desktop">
+
+                <!-- Card 1 -->
+                <div class="card">
+                    <span class="card-icon has-text-warning">
+                        <i class="fas fa-euro-sign"></i>
+                    </span>
+                    <div class="card-content">
+                            <div class="content">
+                                <strong>Aina edullisimmat hinnat</strong>. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga alias pariatur cum deserunt iste atque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga alias pariatur cum deserunt iste atque.
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card container -->
+            <div class="column is-6-tablet is-4-desktop">
+
+                <!-- Card 2 -->
+                <div class="card">
+                    <div class="card-icon has-text-danger">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="card-content">
+                            <div class="content">
+                                <strong>Parhaimmat ja laadukkaimmat tuotteet</strong>. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Phasellus nec iaculis mauris.
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card container -->
+            <div class="column">
+
+                <!-- Card 3 -->
+                <div class="card">
+                    <div class="card-icon has-text-info">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <div class="card-content">
+                            <div class="content">
+                                <strong>Nopea toimitusta!</strong>. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                Phasellus nec iaculis mauris.
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+<%- include('includes/footer'); %> 

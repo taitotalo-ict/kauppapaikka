@@ -1,0 +1,142 @@
+/* Perus ja yleiset asetukset */
+:root {
+    --primary-color: purple;
+    --primary-color-hover: mediumorchid;
+    --info-color-hover: #60a6d5;
+}
+
+strong {
+    color: inherit;
+}
+
+p a:hover {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.has-border {
+    border-right: 1px solid white;
+    border-left: 1px solid white;
+}
+
+.button.is-primary {
+    background-color: var(--primary-color);
+}
+
+.button.is-primary:hover {
+    background-color: var(--primary-color-hover);
+}
+
+.button.is-info:hover {
+    background-color: var(--info-color-hover);
+}
+
+/* NavBar */
+.navbar-item img {
+    max-height: 2.75rem;
+}
+
+/* Call to Action */
+.cta a {
+    font-size: min(5vw, 60px);
+}
+
+.cta .button {
+    height: 1.5em;
+}
+
+/* Hero card */
+.card {
+    display: flex;
+    flex-direction: column;
+}
+.card.is-horizontal {
+    flex-direction: column;
+}
+
+@media screen and (min-width: 1024px) {
+    .card.is-horizontal {
+        flex-direction: row;
+    }
+}
+
+.card.is-horizontal .card-image {
+    flex: 4;
+    flex-shrink: 1;
+}
+
+.card.is-horizontal .card-image .image {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+}
+
+.card.is-horizontal .card-image img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.card.is-horizontal .card-content {
+    flex: 3
+}
+
+.button.is-primary {
+    background-color: var(--primary-color);
+}
+
+.button.is-primary:hover {
+    background-color: var(--primary-color-hover);
+}
+
+/* Cards */
+.card {
+    height: 100%;
+}
+.card-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10rem;
+    margin: 2rem auto;
+}
+
+/* Footer */
+@media screen and (max-width: 768px) {
+    .footer .categories {
+        border-right: 0;
+        border-left: 0;
+        border-top: 1px solid white;
+        border-bottom: 1px solid white;
+        margin: 2rem;
+        padding: 1rem;
+    }
+}
+
+.footer a {
+    color: bisque;
+}
+
+/* tuote */
+.tuote .column:last-child {
+    border-left: 1px solid #e5e7ea;
+}
+
+/* Shopping cart */
+.cart {
+    position: relative;
+}
+
+.cart>.cart-count {
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+    color: white;
+    background-color: red;
+    border-radius: 50%;
+    text-align: center;
+    width: 1.5rem;
+    height: 1.5rem;
+}
